@@ -26,7 +26,7 @@ def suggest_product_title(prompt):
 def home():
     return "Welcome to the Itinerary Generator API"
 
-@app.route('/generate-itinerary', methods=['POST'])
+@app.route('/generate-itinerary', methods=['POST', 'OPTIONS'])
 def generate_itinerary():
     print("Entered generate_itinerary")  # Print the incoming request data
     
