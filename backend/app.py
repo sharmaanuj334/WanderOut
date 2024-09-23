@@ -28,9 +28,13 @@ def home():
 
 @app.route('/generate-itinerary', methods=['POST'])
 def generate_itinerary():
+    print("Entered generate_itinerary")  # Print the incoming request data
+    
     if request.method == 'POST':
         # Extracting JSON data from the request
         data = request.json
+
+        print("Received data:", data)  # Print the incoming request data
 
         # Updated fields according to the new form data
         destination_country = data.get('destination_country')
