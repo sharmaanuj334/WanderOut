@@ -101,6 +101,8 @@ def generate_itinerary():
         
         next_response = suggest_product_title(corrected_prompt)
 
+        print("Reached till here\n")
+
         # Return the AI-generated result as JSON
         return jsonify({"itinerary": next_response})
 
