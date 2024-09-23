@@ -22,6 +22,10 @@ def suggest_product_title(prompt):
     response = model.generate_content(prompt)
     return response.text
 
+@app.route('/')
+def home():
+    return "Welcome to the Itinerary Generator API"
+
 @app.route('/generate-itinerary', methods=['POST'])
 def generate_itinerary():
     if request.method == 'POST':
@@ -101,4 +105,7 @@ def generate_itinerary():
         return jsonify({"itinerary": next_response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # The PORT environment variable is set by Render
+    # We provide a default of 5000 for local development
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
