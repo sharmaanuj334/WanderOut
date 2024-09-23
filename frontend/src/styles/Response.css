@@ -1,0 +1,34 @@
+
+body{
+    background-image: url('../assets/travel-bg.jpg'); 
+}
+.response-container {
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for a clean look */
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.response-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.itinerary-card {
+ 
+    padding: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color:hsl(from rgb(240, 252, 251) h s l) !important;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.day-title {
+    font-weight: 600;
+}
+
+.day-details {
+    color: #555;
+    margin-top: 10px;
+}
