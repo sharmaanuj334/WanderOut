@@ -34,8 +34,6 @@ def generate_itinerary():
         # Extracting JSON data from the request
         data = request.json
 
-        print("Received data:", data)  # Print the incoming request data
-
         # Updated fields according to the new form data
         destination_country = data.get('destination_country')
         budget = data.get('budget')
@@ -104,8 +102,6 @@ def generate_itinerary():
                         """
         
         next_response = suggest_product_title(corrected_prompt)
-
-        print("Reached till here\n")
 
         # Return the AI-generated result as JSON
         return jsonify({"itinerary": next_response})
