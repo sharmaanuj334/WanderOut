@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// Update this to your actual backend URL on Render
+const BACKEND_URL = 'https://wanderout.onrender.com'; // Replace with your actual URL
+
 export const generateItinerary = async (formData) => {
-    const response = await fetch('http://localhost:5000/generate-itinerary', {
+    console.log('Generating itinerary...');
+    const response = await fetch(`${BACKEND_URL}/generate-itinerary`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
