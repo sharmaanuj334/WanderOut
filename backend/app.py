@@ -4,20 +4,22 @@ import os
 import google.generativeai as genai  # Import Gemini API classes
 from dotenv import load_dotenv  # Import load_dotenv to load environment variables
 
-
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    raise ValueError("GEMINI_API_KEY is missing. Please add it to your environment variables.")
+
+os.environ["GEMINI_API_KEY"] = api_key
 # Set up API key for Gemini
-os.environ["GEMINI_API_KEY"] = api_key 
 app = Flask(__name__)
-CORS(app)  # Add CORS to the app
+
+# CORS settings to allow requests only from the Netlify frontend
+CORS(app, resources={r"/*": {"origins": "https://sunny-pastelito-416370.netlify.app"}})
 
 # Function to call Gemini API with the generated prompt
 def suggest_product_title(prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')  # Use the appropriate model
-
     response = model.generate_content(prompt)
-
     return response.text
 
 @app.route('/generate-itinerary', methods=['POST'])
@@ -55,7 +57,7 @@ def generate_itinerary():
                 Ensure the trip is enjoyable, well-paced, and highlights the important experiences in {destination_country}. 
                 Also try to incorporate activities to be done in that day if you feel so.
                 But the output should strictly follow the example's pattern.
-
+                
                 Example - If they wish to visit beaches in madras for 3 days and budget is 600:
                 Day1: 
                     Route : Hotel => Tiruvanmiur beach (10am) => Marina beach (2pm) => Night market (6pm) => Hotel (8pm)
@@ -79,10 +81,6 @@ def generate_itinerary():
                         Accommodation: 100
                         Travel: 50
                 """
-        
-        filename = "./toDelBefore.txt"
-        with open(filename, "w", encoding="utf-8") as file:
-            file.write(prompt)
 
         # Call the Gemini API with the generated prompt
         ai_response = suggest_product_title(prompt)
@@ -98,10 +96,6 @@ def generate_itinerary():
                         """
         
         next_response = suggest_product_title(corrected_prompt)
-
-        filename = "./toDel.txt"
-        with open(filename, "w", encoding="utf-8") as file:
-            file.write(next_response)
 
         # Return the AI-generated result as JSON
         return jsonify({"itinerary": next_response})
