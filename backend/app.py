@@ -30,7 +30,7 @@ def home():
 def generate_itinerary():
     print("Entered generate_itinerary")  # Print the incoming request data
     
-    if request.method == 'POST':
+    if request.method == 'OPTIONS':
         # Extracting JSON data from the request
         data = request.json
 
@@ -109,6 +109,8 @@ def generate_itinerary():
 
         # Return the AI-generated result as JSON
         return jsonify({"itinerary": next_response})
+    else:
+        return jsonify({"itinerary": "nothing"})
 
 if __name__ == '__main__':
     # The PORT environment variable is set by Render
