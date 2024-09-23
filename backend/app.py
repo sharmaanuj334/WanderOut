@@ -14,7 +14,7 @@ os.environ["GEMINI_API_KEY"] = api_key
 app = Flask(__name__)
 
 # CORS settings to allow requests only from the Netlify frontend
-CORS(app, resources={r"/*": {"origins": "https://sunny-pastelito-416370.netlify.app"}})
+CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app/"}})
 
 # Function to call Gemini API with the generated prompt
 def suggest_product_title(prompt):
