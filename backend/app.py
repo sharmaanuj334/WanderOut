@@ -110,7 +110,7 @@ def generate_itinerary():
         # Return the AI-generated result as JSON
         return jsonify({"itinerary": next_response})
     else:
-        return jsonify({"itinerary": "nothing"})
+        return jsonify({"itinerary": next_response})
 
 if __name__ == '__main__':
     # The PORT environment variable is set by Render
