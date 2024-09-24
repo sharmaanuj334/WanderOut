@@ -14,7 +14,7 @@ os.environ["GEMINI_API_KEY"] = api_key
 app = Flask(__name__)
 
 # CORS settings to allow requests only from the Netlify frontend
-CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app"}},
+CORS(app, resources={r"/*": {"origins": "https://steady-treacle-ba6c03.netlify.app"}},
      methods=["POST", "OPTIONS"],
      allow_headers=["Content-Type"])
 
