@@ -14,8 +14,9 @@ os.environ["GEMINI_API_KEY"] = api_key
 app = Flask(__name__)
 
 # CORS settings to allow requests only from the Netlify frontend
-CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app/"}})
-
+CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app"}},
+     methods=["POST", "OPTIONS"],
+     allow_headers=["Content-Type"])
 # Function to call Gemini API with the generated prompt
 def suggest_product_title(prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')  # Use the appropriate model
