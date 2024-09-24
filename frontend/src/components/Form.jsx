@@ -13,11 +13,11 @@ const Form = () => {
         state: '',
         district: '',
         number_of_people: '',
-        number_of_days: '', // Added this line
+        number_of_days: '',
         travel_companions: '',
         trip_description: '',
-        travel_style: 'Adventure',
-        travel_mode: 'Bus',
+        travel_style: 'Pilgrimage',
+        travel_mode: 'Hitchhiking',
         additional_key_points: ''
     });
 
@@ -25,7 +25,7 @@ const Form = () => {
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
     const videoRef = useRef(null);
-    const videoSources = [require('../assets/hill1.mp4')];
+    const videoSources = [require('../assets/aurora.mp4')];
     const navigate = useNavigate();
 
 
@@ -113,16 +113,27 @@ const Form = () => {
 
             <Box className="main-content">
                 <Box className="form-container">
-                    <Typography variant="h4" align="center" gutterBottom>
-                        Prepare Your Journey
-                    </Typography>
+                <Typography
+                    variant="h4"
+                    align="center"
+                    gutterBottom
+                    sx={{
+                        fontFamily: 'Lobster, cursive',
+                        fontWeight: '400',
+                        fontSize: '2.5rem',
+                        color: '#3E2723',
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)',
+                    }}
+                >
+                    Details of the Trip
+                </Typography>
 
                     <form onSubmit={handleSubmit} className="form-content">
                         <Grid container spacing={2}>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     select
-                                    label="Country you want to visit"
+                                    label="Destination"
                                     name="destination_country"
                                     value={formData.destination_country}
                                     onChange={handleChange}
@@ -138,9 +149,9 @@ const Form = () => {
                                 </TextField>
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
-                                    label="Budget of the trip (in USD)"
+                                    label="Budget (in USD)"
                                     name="budget"
                                     type="number"
                                     value={formData.budget}
@@ -190,7 +201,7 @@ const Form = () => {
                                 </>
                             )}
 
-                            <Grid item xs={6}>
+                            <Grid item xs={4}>
                                 <TextField
                                     label="Number of people"
                                     name="number_of_people"
@@ -202,7 +213,24 @@ const Form = () => {
                                 />
                             </Grid>
 
-                            <Grid item xs={6}>
+                            <Grid item xs={4}>
+                                <TextField
+                                    select
+                                    label="Companions"
+                                    name="travel_companions"
+                                    value={formData.travel_companions}
+                                    onChange={handleChange}
+                                    fullWidth
+                                    required
+                                >
+                                    <MenuItem value="Colleagues">Colleagues</MenuItem>
+                                    <MenuItem value="Friends">Friends</MenuItem>
+                                    <MenuItem value="Family">Family</MenuItem>
+                                    <MenuItem value="Solo">Solo</MenuItem>
+                                </TextField>
+                            </Grid>
+
+                            <Grid item xs={4}>
                                 <TextField
                                     label="Number of days" // Added this section
                                     name="number_of_days"
@@ -214,73 +242,62 @@ const Form = () => {
                                 />
                             </Grid>
 
-                            <Grid item xs={6}>
-                                <TextField
-                                    select
-                                    label="Travel Companions"
-                                    name="travel_companions"
-                                    value={formData.travel_companions}
-                                    onChange={handleChange}
-                                    fullWidth
-                                    required
-                                >
-                                    <MenuItem value="Friends">Friends</MenuItem>
-                                    <MenuItem value="Family">Family</MenuItem>
-                                    <MenuItem value="Solo">Solo</MenuItem>
-                                </TextField>
-                            </Grid>
-
                             <Grid item xs={12}>
                                 <TextField
                                     label="Trip Description"
                                     name="trip_description"
                                     multiline
-                                    rows={3}
+                                    rows={1.5}
                                     value={formData.trip_description}
                                     onChange={handleChange}
                                     fullWidth
                                     required
-                                    placeholder="e.g., I want to visit the mountains in India..."
+                                    placeholder="Our major target to see snowfall and play with snow"
                                 />
                             </Grid>
 
                             <Grid item xs={6}>
                                 <TextField
                                     select
-                                    label="Travel Style"
+                                    label="Target"
                                     name="travel_style"
                                     value={formData.travel_style}
                                     onChange={handleChange}
                                     fullWidth
                                 >
+                                    <MenuItem value="Exploration">Exploration</MenuItem>
+                                    <MenuItem value="Pilgrimage">Pilgrimage</MenuItem>
+                                    <MenuItem value="Scenery">Scenic</MenuItem>
                                     <MenuItem value="Adventure">Adventure</MenuItem>
-                                    <MenuItem value="Religious">Religious</MenuItem>
-                                    <MenuItem value="Scenery">Scenery</MenuItem>
                                 </TextField>
                             </Grid>
 
                             <Grid item xs={6}>
                                 <TextField
                                     select
-                                    label="Travel Mode"
+                                    label="Major Transportation"
                                     name="travel_mode"
                                     value={formData.travel_mode}
                                     onChange={handleChange}
                                     fullWidth
                                 >
+                                    <MenuItem value="Hitchhiking">Hitchhiking</MenuItem>
+                                    <MenuItem value="Flight">Flight</MenuItem>
                                     <MenuItem value="Bus">Bus</MenuItem>
                                     <MenuItem value="Car">Car</MenuItem>
+                                    <MenuItem value="Ferry">Ferry</MenuItem>
                                     <MenuItem value="Bike">Bike</MenuItem>
                                     <MenuItem value="Train">Train</MenuItem>
                                 </TextField>
                             </Grid>
 
+
                             <Grid item xs={12}>
                                 <TextField
-                                    label="Additional Key Points"
+                                    label="Additional Details"
                                     name="additional_key_points"
                                     multiline
-                                    rows={2}
+                                    rows={1}
                                     value={formData.additional_key_points}
                                     onChange={handleChange}
                                     fullWidth

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import "../styles/Response.css";
+import { List, ListItem } from '@mui/material';
 
 const Response = () => {
   const [itinerary, setItinerary] = useState("");
@@ -28,44 +29,42 @@ const Response = () => {
     return text.replace(boldPattern, "<strong>$1</strong>"); // Replace with <strong> tags
   };
 
-  // Function to format and map each line to appropriate Typography component
   const formatItinerary = (itinerary) => {
     const lines = itinerary.split("\n");
     console.log("Lines after splitting: ", lines); // Debugging
 
     return lines.map((line, index) => {
-      if (line.trim() === "") {
-        return <br key={index} />; // Add line breaks for empty lines
-      } else if (line.startsWith("*")) {
-        // Handle bullet points
-        return (
-          <Typography
-            key={index}
-            variant="body1"
-            component="li"
-            dangerouslySetInnerHTML={{
-              __html: boldify(line.replace("* ", "")),
-            }}
-            gutterBottom
-            sx={{ fontSize: '15px' }} // Increased font size for bullet points
-          />
-        );
-      } else {
-        // For regular lines
-        return (
-          <Typography
-            key={index}
-            variant="body1"
-            component="p"
-            dangerouslySetInnerHTML={{ __html: boldify(line) }}
-            gutterBottom
-            sx={{ fontSize: '12px' }} // Increased font size for regular lines
-          />
-        );
-      }
+        if (line.trim() === "") {
+            return <br key={index} />; // Add line breaks for empty lines
+        } else if (line.startsWith("*")) {
+            // Handle bullet points
+            return (
+                <ListItem key={index} sx={{ padding: '0' }}> {/* Remove default padding */}
+                    <Typography
+                        variant="body1"
+                        component="span"
+                        dangerouslySetInnerHTML={{
+                            __html: boldify(line.replace("* ", "")),
+                        }}
+                        sx={{ fontSize: '16px', marginBottom: '8px' }} // Increased font size and margin
+                    />
+                </ListItem>
+            );
+        } else {
+            // For regular lines
+            return (
+                <Typography
+                    key={index}
+                    variant="body1"
+                    component="p"
+                    dangerouslySetInnerHTML={{ __html: boldify(line) }}
+                    gutterBottom
+                    sx={{ fontSize: '14px', marginBottom: '12px' }} // Consistent font size with spacing
+                />
+            );
+        }
     });
-  };
-
+};
   return (
     <div className="response-container">
       <Typography 
@@ -73,9 +72,9 @@ const Response = () => {
         component="h2" 
         align="center" 
         gutterBottom
-        sx={{ fontFamily: 'fantasy', fontSize: '50px' }} // Font size for title
+        sx={{ fontFamily: 'Cursive', fontSize: '50px' }} // Font size for title
       >
-        Your Generated Travel Itinerary
+        Your Itinerary
       </Typography>
 
       <Card className="itinerary-card">

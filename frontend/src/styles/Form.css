@@ -1,57 +1,112 @@
+/* Base Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
 
+/* Video Background */
 .video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  
-  .video-background video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Main Content Area */
+.main-content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: rgba(200, 218, 216, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 100%;
+}
+
+/* Response Section */
+.response-section {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-y: auto;
+  max-height: 40vh;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: rgba(240, 240, 240, 0.8);
+}
+
+/* Input Fields */
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s; /* Transition for border color */
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #66afe9;
+  outline: none;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid transparent; /* Added border for better visibility */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s; /* Added transition for border */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  border-color: #004085; /* Visible focus state for accessibility */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
   .form-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    max-height: 90vh;
+      padding: 20px;
   }
-  
-  .response-section {
-    white-space: pre-wrap; /* Preserve newlines */
-    word-wrap: break-word; /* Ensure long words break and wrap */
-    word-break: break-word; /* Break long continuous words */
-    overflow-y: auto;
-    max-height: 30vh;
-  }
-  
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /* overflow: hidden; Prevent entire page from scrolling */
-  }
-  
+
   .main-content {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
+      padding: 10px;
   }
-  
-  form {
-    max-height: 60vh;
-    overflow-y: auto;
-  }
+}
