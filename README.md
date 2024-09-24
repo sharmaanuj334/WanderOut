@@ -5,10 +5,10 @@ This web application generates personalized travel itineraries based on user pre
 
 ## Screenshots
 ### Homepage
-![Homepage](frontend/src/assets/plan_form.png)
+![Homepage](frontend/src/assets/frontend1.png)
 
 ### Response
-![Response](frontend/src/assets/response.png)
+![Response](frontend/src/assets/frontend2.png)
 
 ## Tech Stack
 - **Frontend**: ReactJS (Material UI for styling)
