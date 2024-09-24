@@ -17,6 +17,14 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app"}},
      methods=["POST", "OPTIONS"],
      allow_headers=["Content-Type"])
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', 'https://celebrated-tiramisu-9dcf29.netlify.app')
+    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
+
 # Function to call Gemini API with the generated prompt
 def suggest_product_title(prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')  # Use the appropriate model
