@@ -28,7 +28,6 @@ def home():
 
 @app.route('/generate-itinerary', methods=['POST', 'OPTIONS'])
 def generate_itinerary():
-    print("Entered generate_itinerary")  # Print the incoming request data
     
     if request.method == 'OPTIONS':
         # Extracting JSON data from the request
