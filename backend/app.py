@@ -30,7 +30,7 @@ def home():
 def generate_itinerary():
 
     if request.method == 'OPTIONS':
-        return jsonify({"Weird": "OPTIONS"}), 200
+        return jsonify({'status': 'OK'})  # CORS preflight response
     
     if request.method == 'POST':
         # Extracting JSON data from the request
@@ -38,7 +38,7 @@ def generate_itinerary():
 
         data = request.get_json(silent=True)
         if data is None:
-            return jsonify({'status': 'OK'})
+            return jsonify({"error": "No data provided"}), 400
 
         # Updated fields according to the new form data
         destination_country = data.get('destination_country')
