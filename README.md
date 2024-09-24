@@ -1,34 +1,28 @@
 # WanderOut
 
 ## Overview
-This web application generates personalized travel itineraries based on user preferences such as destination, budget, interests, and trip duration. It utilizes AI models to create dynamic, tailored itineraries that are easy to view and customize.
+WanderOut is a web application designed to craft personalized travel itineraries tailored to your unique preferences, including destination, budget, interests, and trip duration. By harnessing the power of AI models, it creates dynamic and customizable itineraries that are easy to navigate.
 
 ## Screenshots
 ### Homepage
 ![Homepage](frontend/src/assets/frontend1.png)
 
-### Response
+### Itinerary Response
 ![Response](frontend/src/assets/frontend2.png)
 
 ## Tech Stack
-- **Frontend**: ReactJS (Material UI for styling)
-- **Backend**: Flask
-- **APIs**: AI21, Gemini, Google APIs
+- **Frontend**: Built with ReactJS and styled using Material UI for a sleek look.
+- **Backend**: Developed using Flask.
+- **APIs**: Integrates AI21, Gemini, and various Google APIs.
 
 ## Key Features
-- **AI-Powered Itineraries**: Leverages AI21 and Gemini APIs to generate detailed itineraries based on user input.
-- **Responsive UI**: Built with ReactJS and styled using Material UI for an accessible, mobile-friendly experience.
-- **Dynamic Inputs**: The form updates based on user choices, providing a personalized and intuitive user experience.
-- **Google API Integration**: Provides accurate location data for route suggestions and travel times.
+- **AI-Powered Itineraries**: Utilizes AI21 and Gemini APIs to produce comprehensive itineraries tailored to your input.
+- **Responsive Design**: Designed with ReactJS and Material UI to ensure a user-friendly, mobile-responsive experience.
+- **Dynamic Input Forms**: Interactive forms that adapt to your selections, offering a personalized and intuitive interface.
+- **Google API Integration**: Accesses precise location data for route suggestions and estimated travel times.
 
 ## Future Enhancements
-- **User Authentication**: Implementing user authentication for saving itineraries.
-- **Database Integration**: Storing user data for personalized trip histories.
-- **UI/UX Improvements**: Further enhancements to provide a better user experience.
-- **Additional Travel APIs**: Integration with more travel APIs for richer recommendations
-
-### **Future Enhancements**
-- **User Authentication**: Implementing user authentication for saving itineraries.
-- **Database Integration**: Storing user data for personalized trip histories.
-- **UI/UX Improvements**: Further enhancements to provide a better user experience.
-- **Additional Travel APIs**: Integration with more travel APIs for richer recommendations.
+- **User Authentication**: Introducing user authentication to allow saving of itineraries for future reference.
+- **Database Integration**: Implementing a database to store user data, enabling personalized trip histories.
+- **UI/UX Improvements**: Ongoing enhancements aimed at refining the overall user experience.
+- **Expanded API Integration**: Collaborating with additional travel APIs to provide even richer travel recommendations.
