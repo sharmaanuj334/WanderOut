@@ -28,10 +28,17 @@ def home():
 
 @app.route('/generate-itinerary', methods=['POST', 'OPTIONS'])
 def generate_itinerary():
-    
+
     if request.method == 'OPTIONS':
+        return jsonify({"Weird": "OPTIONS"}), 200
+    
+    if request.method == 'POST':
         # Extracting JSON data from the request
         data = request.json
+
+        data = request.get_json(silent=True)
+        if data is None:
+            return jsonify({'status': 'OK'})
 
         # Updated fields according to the new form data
         destination_country = data.get('destination_country')
