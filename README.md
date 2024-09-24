@@ -59,15 +59,3 @@ The Travel Planning Application is a cutting-edge platform designed to create pe
 ## Links
 - **Live Site**: [Travel Planning Application](https://steady-treacle-ba6c03.netlify.app/)
 - **Backend**: [Render Backend](https://wanderout.onrender.com/)
-
-## Getting Started
-(Instructions for setting up the project locally would go here)
-
-## Contributing
-(Guidelines for contributing to the project would go here)
-
-## License
-(License information would go here)
-
-## Contact
-(Contact information for the project maintainers would go here)
