@@ -125,6 +125,6 @@ def generate_itinerary():
 
 if __name__ == '__main__':
     # The PORT environment variable is set by Render
-    # We provide a default of 5000 for local development
-    port = int(os.environ.get("PORT", 5000))
+    # We provide a default of 10000 for local development
+    port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
