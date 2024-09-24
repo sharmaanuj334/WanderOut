@@ -1,4 +1,4 @@
-# Wander-Route-Planner
+# WanderOut
 
 ## Overview
 This web application generates personalized travel itineraries based on user preferences such as destination, budget, interests, and trip duration. It utilizes AI models to create dynamic, tailored itineraries that are easy to view and customize.
