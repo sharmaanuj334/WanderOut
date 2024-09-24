@@ -14,13 +14,13 @@ os.environ["GEMINI_API_KEY"] = api_key
 app = Flask(__name__)
 
 # CORS settings to allow requests only from the Netlify frontend
-CORS(app, resources={r"/*": {"origins": "https://celebrated-tiramisu-9dcf29.netlify.app"}},
+CORS(app, resources={r"/*": {"origins": "https://steady-treacle-ba6c03.netlify.app"}},
      methods=["POST", "OPTIONS"],
      allow_headers=["Content-Type"])
 
 @app.after_request
 def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'https://celebrated-tiramisu-9dcf29.netlify.app')
+    response.headers.add('Access-Control-Allow-Origin', 'https://steady-treacle-ba6c03.netlify.app')
     response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
     return response
@@ -125,6 +125,6 @@ def generate_itinerary():
 
 if __name__ == '__main__':
     # The PORT environment variable is set by Render
-    # We provide a default of 5000 for local development
-    port = int(os.environ.get("PORT", 5000))
+    # We provide a default of 10000 for local development
+    port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
