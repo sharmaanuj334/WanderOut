@@ -20,7 +20,7 @@ CORS(app, resources={r"/*": {"origins": "https://steady-treacle-ba6c03.netlify.a
 
 @app.after_request
 def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'https://celebrated-tiramisu-9dcf29.netlify.app')
+    response.headers.add('Access-Control-Allow-Origin', 'https://steady-treacle-ba6c03.netlify.app')
     response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
     return response
